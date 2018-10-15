@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.com.c8tech.tools</groupId>
+    <artifactId>osgi-container.it.test</artifactId>
+    <version>1.0.0</version>
+    <packaging>osgi.container</packaging>
+    <name>A project for tests generation of equinox container distribution</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.platform</groupId>
+            <artifactId>org.eclipse.osgi</artifactId>
+            <version>3.13.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>br.com.c8tech.tools</groupId>
+                <artifactId>osgi-container-maven-plugin</artifactId>
+                <version>${it-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <container>EQUINOX</container>
+                    <transitiveConsidered>true</transitiveConsidered>
+                    <buildDocker>false</buildDocker>
+                    <localRepositoryGAV>br.com.c8tech.hawkeyes:c8tech-hawkeyes-osgi-repository</localRepositoryGAV>
+                    <configuratorInitial>${project.basedir}/src/config/c8tech.osgi.kernel.setup.json</configuratorInitial>
+                    <verbose>true</verbose>
+                    <tag>${project.version}</tag>
+<!--                     <useMavenSettingsForAuth>true</useMavenSettingsForAuth> -->
+                    <useMavenSettingsForAuth>false</useMavenSettingsForAuth>
+                    <googleContainerRegistryEnabled>false</googleContainerRegistryEnabled>
+<!--                         <buildArgs> -->
+<!--                             <ZIP_FILE>${project.build.finalName}.tar.gz</ZIP_FILE> -->
+<!--                             <IMAGE_VERSION>${project.version}</IMAGE_VERSION> -->
+<!--                             <IMAGE_RELEASE_DATE>${maven.build.timestamp}</IMAGE_RELEASE_DATE> -->
+<!--                         </buildArgs> -->
+                </configuration>
+
+            </plugin>
+        </plugins>
+    </build>
+</project>

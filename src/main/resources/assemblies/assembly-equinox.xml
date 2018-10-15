@@ -1,0 +1,59 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+
+    <id>equinox</id>
+
+    <formats>
+        <format>tar.gz</format>
+<!--         <format>dir</format> -->
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>${osgi.container.cacheDirectory}/plugins
+            </directory>
+            <outputDirectory>bundles</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${osgi.container.cacheDirectory}/bin/plugins
+            </directory>
+            <outputDirectory>.</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${osgi.container.cacheDirectory}/repository
+            </directory>
+            <outputDirectory>repository</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${osgi.container.workDirectory}/config
+            </directory>
+            <outputDirectory>configuration</outputDirectory>
+        </fileSet>
+    </fileSets>
+    
+    <files>
+        <file>
+            <source>${osgi.container.workDirectory}/gitkeep.txt</source>
+            <outputDirectory>./area/user</outputDirectory>
+            <destName>.gitkeep</destName>
+        </file>
+        <file>
+            <source>${osgi.container.workDirectory}/gitkeep.txt</source>
+            <outputDirectory>./area/instance</outputDirectory>
+            <destName>.gitkeep</destName>
+        </file>
+        <file>
+            <source>${osgi.container.workDirectory}/gitkeep.txt</source>
+            <outputDirectory>./repository</outputDirectory>
+            <destName>.gitkeep</destName>
+        </file>
+        <file>
+            <source>${osgi.container.workDirectory}/gitkeep.txt</source>
+            <outputDirectory>./logs</outputDirectory>
+            <destName>.gitkeep</destName>
+        </file>
+    </files>
+</assembly>

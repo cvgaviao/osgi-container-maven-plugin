@@ -22,8 +22,8 @@
     </parent>
 
     <artifactId>osgi-container-maven-plugin</artifactId>
-    <name>C8Tech OSGi Maven Tools : Plugin for OSGi Container Distribution Archive Generation</name>
-    <description>A maven plugin aimed to generate a compressed package containing an OSGi container structure ready to be used by users.</description>
+    <name>OSGi Container Distribution Archive Generator Maven Plugin</name>
+    <description>A maven plugin aimed to generate a compressed archive containing an OSGi container structure ready to be used.</description>
     <packaging>takari-maven-plugin</packaging>
 
     <!-- not inherited, IIRC -->
@@ -50,6 +50,7 @@
         <version.maven.assembly>3.1.0</version.maven.assembly>
         <version.maven.docker>1.4.4</version.maven.docker>
         <version.docker-client>8.13.1</version.docker-client>
+        <version.c8tech.maven.library>0.6.0</version.c8tech.maven.library>
     </properties>
 
 
@@ -105,7 +106,7 @@
         <dependency>
             <groupId>br.com.c8tech.tools</groupId>
             <artifactId>c8tech.tools.maven.library.mojo</artifactId>
-            <version>0.5.1-SNAPSHOT</version>
+            <version>${version.c8tech.maven.library}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.shared</groupId>

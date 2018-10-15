@@ -1,9 +1,13 @@
+[![CircleCI](https://circleci.com/gh/cvgaviao/osgi-container-maven-plugin.svg?style=svg)](https://circleci.com/gh/cvgaviao/osgi-container-maven-plugin)
 
-
-OSGi Container Distribution Archive Generation Maven Plugin 
+OSGi Container Distribution Archive Generator Maven Plugin 
 ================================
 
-A maven plugin aimed to generate a compressed package containing an OSGi container structure ready to be used by users.
+This git repository contains a maven plugin project that is aimed to generate a compressed archive containing an OSGi container structure plus the necessary OSGi bundles necessary to be distributed and ready to be used.
+
+## Docker ready
+
+We have have borrowed some code from the `spotify's dockerfile maven plugin` and integrated into the plugin's lifecycle in order to produce an docker image  from the produced archive and ready to be deployed.
 
 ------------
 ## Documentation, download and usage instructions details

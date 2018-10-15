@@ -1,0 +1,32 @@
+<lifecycleMappingMetadata>
+    <pluginExecutions>
+<!--         <pluginExecution> -->
+<!--             <pluginExecutionFilter> -->
+<!--                 <goals> -->
+<!--                     <goal>initializePlugin</goal> -->
+<!--                     <goal>generateResourcesFolder</goal> -->
+<!--                 </goals> -->
+<!--             </pluginExecutionFilter> -->
+<!--             <action> -->
+<!--                 <configurator> -->
+<!--                     <id>io.takari.m2e.incrementalbuild.mojoExecutionConfigurator</id> -->
+<!--                 </configurator> -->
+<!--             </action> -->
+<!--         </pluginExecution> -->
+        <pluginExecution>
+            <pluginExecutionFilter>
+                <goals>
+                    <goal>cacheMavenArtifacts</goal>
+                    <goal>assembly</goal>
+                    <goal>buildDockerImage</goal>
+                    <goal>tagDockerImage</goal>
+                    <goal>pushDockerImage</goal>
+                    <goal>generateConfigurationFile</goal>
+                </goals>
+            </pluginExecutionFilter>
+            <action>
+                <ignore />
+            </action>
+        </pluginExecution>
+    </pluginExecutions>
+</lifecycleMappingMetadata>
