@@ -1,0 +1,42 @@
+Usage:
+------
+
+Add the plugin to your pom:
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>${project.artifactId}</artifactId>
+                <version>${project.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    
+    
+In order to start the generated OSGi container: 
+
+- extract the archive into a folder;
+
+- open a terminal in the root of the extracted folder and call:
+
+  -- for Apache Felix:   
+    
+        java -jar ./bin/felix.jar
+    
+  -- for Eclipse Equinox:  
+    
+        java -jar equinox.jar 
+    
+    
+    
+In order to create one docker container based on the generated docker image do this:
+
+- open a terminal and call:
+
+    docker run -it [image-repository-name]:[version]
+    

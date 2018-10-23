@@ -1,0 +1,33 @@
+Introduction
+--------------
+
+The OSGi Container Distribution Generator maven plugin was design to facilitate \
+the generation of distribution of OSGi container.
+
+--------
+## Quickstart
+
+
+The plugin provides the `osgi.repository` *packaging type*
+
+    <groupId>my-project</groupId>
+    <artifactId>my-osgi-repository</artifactId>
+    <packaging>osgi.container</packaging>
+
+Add the following to your project's plugins section:
+
+	<plugin>
+		<groupId>${project.groupId}</groupId>
+		<artifactId>${project.artifactId}</artifactId>
+		<version>${project.version}</version>
+	</plugin>
+
+Release your project by running `mvn clean package`
+ 
+See [usage](usage.html) for more details.
+
+
+Prerequisites
+-------------
+
+The plugin requires **Maven ${project.prerequisites.maven}** or later and **Java 8** or later.
