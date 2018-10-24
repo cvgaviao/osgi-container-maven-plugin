@@ -18,7 +18,7 @@
     <parent>
         <groupId>br.com.c8tech.tools</groupId>
         <artifactId>c8tech-tools-maven-pom</artifactId>
-        <version>0.7.4</version>
+        <version>0.7.6</version>
     </parent>
 
     <artifactId>osgi-container-maven-plugin</artifactId>
@@ -46,12 +46,12 @@
 
 
     <properties>
-        <version.c8tech.maven.library>0.7.4</version.c8tech.maven.library>
+        <version.c8tech.maven.library>0.7.6</version.c8tech.maven.library>
         <c8tech.scm.repo.name>osgi-container-maven-plugin</c8tech.scm.repo.name>
 
         <version.maven.assembly>3.1.0</version.maven.assembly>
         <version.maven.docker>1.4.4</version.maven.docker>
-        <version.docker-client>8.13.1</version.docker-client>
+        <version.docker-client>8.14.2</version.docker-client>
     </properties>
 
 
@@ -86,7 +86,7 @@
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
-<!--             <scope>provided</scope> -->
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -127,6 +127,13 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+
+        <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
             <version>${version.maven.assembly}</version>
@@ -143,9 +150,17 @@
                     <groupId>org.sonatype.sisu</groupId>
                     <artifactId>sisu-inject-plexus</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.apache.maven</groupId>
+                    <artifactId>maven-archiver</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-archiver</artifactId>
+            <version>3.2.0</version>
+        </dependency>
 <!--         <dependency> -->
 <!--             <groupId>com.spotify</groupId> -->
 <!--             <artifactId>dockerfile-maven-plugin</artifactId> -->
@@ -154,7 +169,7 @@
         <dependency>
             <groupId>com.google.auth</groupId>
             <artifactId>google-auth-library-oauth2-http</artifactId>
-            <version>0.6.0</version>
+            <version>0.11.0</version>
         </dependency>
         <dependency>
             <groupId>com.spotify</groupId>
@@ -166,7 +181,7 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.0</version>
+            <version>2.8.5</version>
         </dependency>
 
         <!-- Build Avoidance -->
@@ -199,9 +214,29 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-archiver</artifactId>
+            <version>3.5</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
             <version>${version.junit}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.c8tech.releng</groupId>
+            <artifactId>fpom-deps-equinox</artifactId>
+            <version>${version.c8tech.releng}</version>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>br.com.c8tech.releng</groupId>
+            <artifactId>fpom-deps-felix</artifactId>
+            <version>${version.c8tech.releng}</version>
+            <type>pom</type>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -214,6 +249,15 @@
                 <configuration>
                     <debug>true</debug>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>none</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>
