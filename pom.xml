@@ -21,7 +21,7 @@
 
     <artifactId>osgi-container-maven-plugin</artifactId>
     <name>OSGi Container Distribution Archive Generator Maven Plugin</name>
-    <version>0.6.2</version>
+    <version>0.6.3-SNAPSHOT</version>
     <description>A maven plugin aimed to generate a compressed archive containing an OSGi container structure ready to be used.</description>
     <packaging>takari-maven-plugin</packaging>
 
@@ -59,7 +59,7 @@
         <connection>${c8tech.scm.connection}</connection>
         <developerConnection>${c8tech.scm.connection.dev}</developerConnection>
         <url>${c8tech.scm.url}</url>
-        <tag>v0.6.2</tag>
+        <tag>HEAD</tag>
     </scm>
     <distributionManagement>
         <site>
