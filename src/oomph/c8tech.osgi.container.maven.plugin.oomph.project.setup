@@ -5,14 +5,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
+    xmlns:maven="http://www.eclipse.org/oomph/setup/maven/1.0"
+    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
     xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
-    name="osgi.container.maven.plugin.git"
-    label="OSGI Container Maven Plugin GIT">
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    name="osgi.container.maven.plugin"
+    label="OSGi Container Maven Plugin GIT">
   <setupTask
       xsi:type="jdt:JRETask"
       version="JavaSE-1.8"
@@ -46,7 +48,7 @@
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
-      id="git.clone.osgi.container.maven.plugin.git"
+      id="git.clone.osgi.container.maven.plugin"
       remoteURI="cvgaviao/osgi-container-maven-plugin">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
@@ -73,7 +75,7 @@
       <requirement
           name="org.eclipse.sdk.feature.group"/>
       <sourceLocator
-          rootFolder="${git.clone.osgi.container.maven.plugin.git.location}"
+          rootFolder="${git.clone.osgi.container.maven.plugin.location}"
           locateNestedProjects="true"/>
       <repositoryList
           name="2019-03">
@@ -102,18 +104,35 @@
     </workingSet>
     <description>The dynamic working sets for ${scope.project.label}</description>
   </setupTask>
+  <setupTask
+      xsi:type="maven:MavenImportTask">
+    <sourceLocator
+        rootFolder="${git.clone.osgi.container.maven.plugin.location}"/>
+  </setupTask>
+  <setupTask
+      xsi:type="mylyn:MylynQueriesTask"
+      connectorKind="github"
+      repositoryURL="https://github.com/cvgaviao/osgi-container-maven-plugin"
+      userID="${github.user.id}"
+      password="${github.user.password}">
+    <query summary="Maven Library Issues">
+      <attribute
+          key="state"
+          value="open::"/>
+    </query>
+  </setupTask>
   <stream name="master"
       label="Master">
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.osgi.container.maven.plugin.git"
-        value="=https://raw.githubusercontent.com/cvgaviao/osgi-container-maven-plugin/master/src/oomph/c8tech.osgi.container.maven.plugin.git.setup->${git.clone.osgi.container.maven.plugin.git.location|uri}//c8tech.osgi.container.maven.plugin.git.setup"
+        value="=https://raw.githubusercontent.com/cvgaviao/osgi-container-maven-plugin/master/src/oomph/c8tech.osgi.container.maven.plugin.git.setup->${git.clone.osgi.container.maven.plugin.location|uri}//c8tech.osgi.container.maven.plugin.git.setup"
         vm="true">
       <description>Set an Oomph redirection system property to redirect the logical location of this setup to its physical location in the Git clone.</description>
     </setupTask>
   </stream>
   <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.github']"/>
-  <description>OSGI Container Maven Plugin GIT provides cool stuff.</description>
+      xsi:type="setup:Project"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.github']/@projects[name='user.project']"/>
+  <description>OSGi Container Maven Plugin GIT provides cool stuff.</description>
 </setup:Project>
