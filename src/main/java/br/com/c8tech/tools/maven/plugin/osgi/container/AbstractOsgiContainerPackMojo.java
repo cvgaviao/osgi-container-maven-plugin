@@ -136,14 +136,6 @@ public abstract class AbstractOsgiContainerPackMojo
     @Parameter(required = false)
     private String containerPomDependenciesGAV;
 
-    /**
-     * A path pointing to a custom Dockerfile that will be used to build the
-     * docker image.
-     * <p>
-     * If no file is informed an internal default one will be used.
-     */
-    @Parameter(required = false)
-    private File customDockerfile;
 
     @Parameter(defaultValue = "${project.build.sourceEncoding}")
     private String encoding;

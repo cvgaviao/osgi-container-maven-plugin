@@ -215,16 +215,21 @@ public class MojoBuildDocker extends AbstractDockerMojo {
             throws MojoExecutionException, MojoFailureException {
 
         try {
-            if (getContainer().equals(Container.EQUINOX)) {
+            if (getContainer().equals(Container.EQUINOX)
+                    && (dockerConfigFile == null
+                            || "".equals(dockerConfigFile.getName()))) {
                 // copy the resources for equinox to cache directory
                 copyInternalFileToProjectDir("/distrib/equinox/", DOCKER_FILE,
                         getBuildDir().toPath());
-            } else
-                // copy the resources for felix to cache directory
-                if (getContainer().equals(Container.FELIX)) {
-                    copyInternalFileToProjectDir("/distrib/felix/", DOCKER_FILE,
-                            getBuildDir().toPath());
-                }
+            }
+
+            // copy the resources for felix to cache directory
+            if (getContainer().equals(Container.FELIX)
+                    && (dockerConfigFile == null
+                            || "".equals(dockerConfigFile.getName()))) {
+                copyInternalFileToProjectDir("/distrib/felix/", DOCKER_FILE,
+                        getBuildDir().toPath());
+            }
         } catch (IOException e) {
             throw new MojoFailureException("Failure copying Dockerfile.", e);
         }
