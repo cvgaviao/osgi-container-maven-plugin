@@ -51,6 +51,7 @@
         <maven.docker.version>1.4.4</maven.docker.version>
         <docker-client.version>8.14.2</docker-client.version>
         <incrementalbuild.version>0.20.7</incrementalbuild.version>
+        <takari-lifecycle.version>1.13.8</takari-lifecycle.version>
     </properties>
 
 
