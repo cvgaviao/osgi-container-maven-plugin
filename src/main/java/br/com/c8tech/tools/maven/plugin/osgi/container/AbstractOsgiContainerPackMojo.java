@@ -375,7 +375,7 @@ public abstract class AbstractOsgiContainerPackMojo
             URL url = getClass().getClassLoader()
                     .getResource("default-container-pom.properties");
             Properties props = loadProperties(url, getEncoding());
-            String version = props.getProperty("version.c8tech.releng");
+            String version = props.getProperty("c8tech.releng.version");
             if (Container.EQUINOX == getContainer()) {
                 containerPomDependenciesGAV = "br.com.c8tech.releng:fpom-deps-equinox:pom:"
                         .concat(version);

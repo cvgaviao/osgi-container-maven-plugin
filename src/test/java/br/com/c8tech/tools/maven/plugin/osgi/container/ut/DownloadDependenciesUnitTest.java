@@ -37,7 +37,7 @@ public class DownloadDependenciesUnitTest extends AbstractOsgiContainerTest {
         Properties props;
         try {
             props = AbstractOsgiContainerPackMojo.loadProperties(url, "UTF-8");
-            RELENG_VERSION = props.getProperty("version.c8tech.releng");
+            RELENG_VERSION = props.getProperty("c8tech.releng.version");
         } catch (MojoFailureException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -74,32 +74,32 @@ public class DownloadDependenciesUnitTest extends AbstractOsgiContainerTest {
                 new File(project.getBasedir(), "target/cache"),
                 "felix/bin/plugins/felix.jar",
                 "felix/plugins/anotherBundle-1.0.0.jar",
-                "felix/plugins/jline-3.9.0.jar",
+                "felix/plugins/jline-3.10.0.jar",
                 "felix/plugins/logback-core-1.2.3.jar",
                 "felix/plugins/logback-classic-1.2.3.jar",
                 "felix/plugins/jansi-1.17.1.jar",
                 "felix/plugins/org.osgi.service.log-1.4.0.201802012107.jar",
                 "felix/plugins/org.osgi.service.prefs-1.1.1.201505202023.jar",
                 "felix/plugins/org.osgi.util.function-1.1.0.201802012106.jar",
-                "felix/plugins/org.osgi.util.promise-1.1.0.201802012106.jar",
-                "felix/plugins/org.osgi.util.pushstream-1.0.0.201802012107.jar",
+                "felix/plugins/org.osgi.util.promise-1.1.1.201810101357.jar",
+                "felix/plugins/org.osgi.util.pushstream-1.0.1.201810101357.jar",
                 "felix/plugins/org.apache.felix.bundlerepository-2.0.10.jar",
                 "felix/plugins/org.apache.felix.eventadmin-1.5.0.jar",
-                "felix/plugins/org.apache.felix.configadmin-1.9.10.jar",
-                "felix/plugins/org.apache.felix.configurator-1.0.6.jar",
-                "felix/plugins/org.apache.felix.converter-1.0.2.jar",
+                "felix/plugins/org.apache.felix.configadmin-1.9.14.jar",
+                "felix/plugins/org.apache.felix.configurator-1.0.8.jar",
+                "felix/plugins/org.apache.felix.converter-1.0.8.jar",
                 "felix/plugins/org.apache.felix.coordinator-1.0.2.jar",
                 "felix/plugins/org.apache.felix.log-1.2.0.jar",
                 "felix/plugins/org.apache.felix.metatype-1.2.2.jar",
                 "felix/plugins/org.apache.felix.prefs-1.1.0.jar",
                 "felix/plugins/org.apache.felix.resolver-2.0.0.jar",
-                "felix/plugins/org.apache.felix.scr-2.1.12.jar",
+                "felix/plugins/org.apache.felix.scr-2.1.16.jar",
                 "felix/plugins/org.apache.felix.log-1.2.0.jar",
-                "felix/plugins/org.apache.felix.logback-1.0.0.jar",
+                "felix/plugins/org.apache.felix.logback-1.0.2.jar",
                 "felix/plugins/slf4j-api-1.7.25.jar",
-                "felix/plugins/org.apache.felix.gogo.jline-1.1.0.jar",
-                "felix/plugins/org.apache.felix.gogo.command-1.0.2.jar",
-                "felix/plugins/org.apache.felix.gogo.runtime-1.1.0.jar");
+                "felix/plugins/org.apache.felix.gogo.jline-1.1.4.jar",
+                "felix/plugins/org.apache.felix.gogo.command-1.1.0.jar",
+                "felix/plugins/org.apache.felix.gogo.runtime-1.1.2.jar");
     }
 
     @Test
@@ -128,34 +128,34 @@ public class DownloadDependenciesUnitTest extends AbstractOsgiContainerTest {
                 new File(project.getBasedir(), "target/cache"),
                 "equinox/bin/plugins/equinox.jar",
                 "equinox/plugins/anotherBundle-1.0.0.jar",
-                "equinox/plugins/jline-3.9.0.jar",
+                "equinox/plugins/jline-3.10.0.jar",
                 "equinox/plugins/jansi-1.17.1.jar",
                 "equinox/plugins/logback-core-1.2.3.jar",
                 "equinox/plugins/logback-classic-1.2.3.jar",
                 "equinox/plugins/slf4j-api-1.7.25.jar",
                 "equinox/plugins/org.osgi.util.function-1.1.0.201802012106.jar",
-                "equinox/plugins/org.osgi.util.promise-1.1.0.201802012106.jar",
-                "equinox/plugins/org.osgi.util.pushstream-1.0.0.201802012107.jar",
-                "equinox/plugins/org.apache.felix.gogo.jline-1.1.0.jar",
-                "equinox/plugins/org.apache.felix.gogo.command-1.0.2.jar",
-                "equinox/plugins/org.apache.felix.gogo.runtime-1.1.0.jar",
-                "equinox/plugins/org.apache.felix.gogo.shell-1.1.0.jar",
-                "equinox/plugins/org.apache.felix.configadmin-1.9.10.jar",
-                "equinox/plugins/org.apache.felix.scr-2.1.12.jar",
+                "equinox/plugins/org.osgi.util.promise-1.1.1.201810101357.jar",
+                "equinox/plugins/org.osgi.util.pushstream-1.0.1.201810101357.jar",
+                "equinox/plugins/org.apache.felix.gogo.jline-1.1.4.jar",
+                "equinox/plugins/org.apache.felix.gogo.command-1.1.0.jar",
+                "equinox/plugins/org.apache.felix.gogo.runtime-1.1.2.jar",
+                "equinox/plugins/org.apache.felix.gogo.shell-1.1.2.jar",
+                "equinox/plugins/org.apache.felix.configadmin-1.9.14.jar",
+                "equinox/plugins/org.apache.felix.scr-2.1.16.jar",
                 "equinox/plugins/org.apache.felix.bundlerepository-2.0.10.jar",
-                "equinox/plugins/org.apache.felix.configurator-1.0.6.jar",
-                "equinox/plugins/org.apache.felix.converter-1.0.2.jar",
-                "equinox/plugins/org.apache.felix.logback-1.0.0.jar",
+                "equinox/plugins/org.apache.felix.configurator-1.0.8.jar",
+                "equinox/plugins/org.apache.felix.converter-1.0.8.jar",
+                "equinox/plugins/org.apache.felix.logback-1.0.2.jar",
                 "equinox/plugins/org.osgi.util.function-1.1.0.201802012106.jar",
-                "equinox/plugins/org.eclipse.equinox.common-3.10.100.v20180827-1235.jar",
-                "equinox/plugins/org.eclipse.equinox.console-1.3.100.v20180827-1235.jar",
+                "equinox/plugins/org.eclipse.equinox.common-3.10.300.v20190218-2100.jar",
+                "equinox/plugins/org.eclipse.equinox.console-1.3.200.v20181115-0906.jar",
                 "equinox/plugins/org.eclipse.equinox.coordinator-1.3.600.v20180827-1235.jar",
-                "equinox/plugins/org.eclipse.equinox.event-1.4.300.v20180827-1235.jar",
-                "equinox/plugins/org.eclipse.equinox.metatype-1.4.500.v20180827-1235.jar",
-                "equinox/plugins/org.eclipse.equinox.preferences-3.7.200.v20180827-1235.jar",
-                "equinox/plugins/org.eclipse.equinox.util-1.1.100.v20180827-1235.jar",
-                "equinox/plugins/org.eclipse.osgi.services-3.7.100.v20180827-1536.jar",
-                "equinox/plugins/org.eclipse.osgi.util-3.5.100.v20180827-1536.jar");
+                "equinox/plugins/org.eclipse.equinox.event-1.5.0.v20181008-1938.jar",
+                "equinox/plugins/org.eclipse.equinox.metatype-1.4.600.v20181116-1551.jar",
+                "equinox/plugins/org.eclipse.equinox.preferences-3.7.300.v20190218-2100.jar",
+                "equinox/plugins/org.eclipse.equinox.util-1.1.200.v20181008-1820.jar",
+                "equinox/plugins/org.eclipse.osgi.services-3.8.0.v20190206-2147.jar",
+                "equinox/plugins/org.eclipse.osgi.util-3.5.200.v20190115-2323.jar");
     }
 
 }

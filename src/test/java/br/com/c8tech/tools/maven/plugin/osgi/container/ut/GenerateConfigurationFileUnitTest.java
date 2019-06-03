@@ -45,7 +45,7 @@ public class GenerateConfigurationFileUnitTest
         Properties props;
         try {
             props = AbstractOsgiContainerPackMojo.loadProperties(url, "UTF-8");
-            RELENG_VERSION = props.getProperty("version.c8tech.releng");
+            RELENG_VERSION = props.getProperty("c8tech.releng.version");
         } catch (MojoFailureException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

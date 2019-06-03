@@ -1,4 +1,4 @@
-#EQUINOX
+#FELIX
 
 FROM ${fromImage}
 MAINTAINER Cristiano Gavião <cvgaviao@c8tech.com.br>
@@ -11,7 +11,7 @@ ARG LOCAL_REPOSITORY_ID
 ARG CONFIGURATOR_INIT_FILE_NAME
 ENV PROJECT_PATH=/opt/share/${PROJECT_ID}
 ENV REPOSITORY_PATH=${PROJECT_PATH}/repository
-ENV CONFIG_PATH=${PROJECT_PATH}/configuration
+ENV CONFIG_PATH=${PROJECT_PATH}/conf
 ENV LOG_PATH=${PROJECT_PATH}/logs
 ENV REPOSITORIES=file:${REPOSITORY_PATH}/${LOCAL_REPOSITORY_ID}
 ENV LOGBACK_FILE=${CONFIG_PATH}/logback.xml
@@ -39,9 +39,8 @@ LABEL version=$IMAGE_VERSION
 EXPOSE ${PORT} 
 
 # Create a script to pass command line args to java
-RUN echo "java -Dconfigurator.initial=${CONFIGURATOR_FILE} -Dobr.repository.url=${REPOSITORIES} -Dlogback.configurationFile=${LOGBACK_FILE} -jar equinox.jar \$@" > run_container.sh
+RUN echo "java -Dconfigurator.initial=${CONFIGURATOR_FILE} -Dobr.repository.url=${REPOSITORIES} -Dlogback.configurationFile=${LOGBACK_FILE} -jar ./bin/felix.jar \$@" > run_container.sh
 RUN apk add --update bash && rm -rf /var/cache/apk/*
 
 ENTRYPOINT ["/bin/bash", "run_container.sh"]
 CMD [""]
-

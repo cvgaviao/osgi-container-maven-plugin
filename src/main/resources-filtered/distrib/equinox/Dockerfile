@@ -1,6 +1,6 @@
 #EQUINOX
 
-FROM ${fromImage}
+FROM openjdk:11-jre-alpine
 MAINTAINER Cristiano Gavião <cvgaviao@c8tech.com.br>
 
 ARG IMAGE_VERSION

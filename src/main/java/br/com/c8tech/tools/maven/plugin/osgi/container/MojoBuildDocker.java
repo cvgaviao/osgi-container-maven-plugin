@@ -76,6 +76,15 @@ public class MojoBuildDocker extends AbstractDockerMojo {
     private Map<String, String> buildArgs;
 
     /**
+     * The name of the base image to use for the created docker image
+     * <p>
+     * The default is the <b>openjdk:11-jre-alpine</b>.
+     */
+    @Parameter(property = "dockerfile.from",
+            defaultValue = "openjdk:11-jre-alpine")
+    private String fromImage;
+
+    /**
      * Do not use cache when building the image.
      */
     @Parameter(property = "dockerfile.build.noCache", defaultValue = "false")
