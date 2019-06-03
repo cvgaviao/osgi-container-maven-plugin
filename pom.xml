@@ -47,9 +47,10 @@
         <c8tech.maven.library.version>${project.parent.version}</c8tech.maven.library.version>
         <c8tech.scm.repo.name>osgi-container-maven-plugin</c8tech.scm.repo.name>
 
-        <version.maven.assembly>3.1.0</version.maven.assembly>
-        <version.maven.docker>1.4.4</version.maven.docker>
-        <version.docker-client>8.14.2</version.docker-client>
+        <maven.assembly.version>3.1.0</maven.assembly.version>
+        <maven.docker.version>1.4.4</maven.docker.version>
+        <docker-client.version>8.14.2</docker-client.version>
+        <incrementalbuild.version>0.20.7</incrementalbuild.version>
     </properties>
 
 
@@ -134,7 +135,7 @@
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <version>${version.maven.assembly}</version>
+            <version>${maven.assembly.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-codec</groupId>
@@ -162,7 +163,7 @@
 <!--         <dependency> -->
 <!--             <groupId>com.spotify</groupId> -->
 <!--             <artifactId>dockerfile-maven-plugin</artifactId> -->
-<!--             <version>${version.maven.docker}</version> -->
+<!--             <version>${maven.docker.version}</version> -->
 <!--         </dependency> -->
         <dependency>
             <groupId>com.google.auth</groupId>
@@ -173,7 +174,7 @@
             <groupId>com.spotify</groupId>
             <artifactId>docker-client</artifactId>
             <classifier>shaded</classifier>
-            <version>${version.docker-client}</version>
+            <version>${docker-client.version}</version>
         </dependency>
 
         <dependency>
