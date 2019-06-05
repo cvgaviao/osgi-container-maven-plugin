@@ -11,9 +11,7 @@
 <!-- Cristiano Gavião (cvgaviao@c8tech.com.br)- initial API and implementation   -->
 <!-- ==========================================================================  -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>br.com.c8tech.tools</groupId>
@@ -23,7 +21,7 @@
 
 	<artifactId>osgi-container-maven-plugin</artifactId>
 	<name>OSGi Container Distribution Archive Generator Maven Plugin</name>
-	<version>0.6.3-SNAPSHOT</version>
+	<version>0.7.0</version>
 	<description>A maven plugin aimed to generate a compressed archive containing an OSGi container structure ready to be used.</description>
 	<packaging>maven-plugin</packaging>
 
@@ -61,7 +59,7 @@
 		<connection>${c8tech.scm.connection}</connection>
 		<developerConnection>${c8tech.scm.connection.dev}</developerConnection>
 		<url>${c8tech.scm.url}</url>
-		<tag>HEAD</tag>
+		<tag>v0.7.0</tag>
 	</scm>
 	<distributionManagement>
 		<site>
