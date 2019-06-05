@@ -64,7 +64,7 @@ import br.com.c8tech.tools.maven.osgi.lib.mojo.beans.BundleRef;
 
 @Mojo(name = "buildDockerImage", defaultPhase = LifecyclePhase.PACKAGE,
         requiresProject = true, threadSafe = true)
-public class MojoBuildDocker extends AbstractDockerMojo {
+public class MojoBuildDocker extends AbstractOsgiDockerMojo {
 
     public static final String DOCKER_FILE = "Dockerfile";
 

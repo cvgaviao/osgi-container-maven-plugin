@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * Copyright © 2015-2018 Cristiano Gavião, C8 Technology ME.
+ * Copyright © 2015-2019 Cristiano Gavião, C8 Technology ME.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -24,7 +24,7 @@ import io.takari.maven.testing.executor.MavenVersions;
 import io.takari.maven.testing.executor.junit.MavenJUnitTestRunner;
 
 @RunWith(MavenJUnitTestRunner.class)
-@MavenVersions({ "3.5.4" })
+@MavenVersions({ "3.6.0" })
 public class FelixContainerArchiveGenerationIntegrationTest
         extends AbstractIntegrationTest {
     public FelixContainerArchiveGenerationIntegrationTest(MavenRuntimeBuilder builder)

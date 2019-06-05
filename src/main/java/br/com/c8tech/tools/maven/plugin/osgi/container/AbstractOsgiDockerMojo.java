@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * Copyright © 2015-2018 Cristiano Gavião, C8 Technology ME.
+ * Copyright © 2015-2019 Cristiano Gavião, C8 Technology ME.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -16,6 +16,7 @@ package br.com.c8tech.tools.maven.plugin.osgi.container;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,6 @@ import org.codehaus.plexus.archiver.Archiver;
 import org.codehaus.plexus.archiver.jar.JarArchiver;
 
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
 import com.google.common.io.Files;
 import com.spotify.docker.client.DefaultDockerClient;
@@ -49,7 +49,7 @@ import com.spotify.docker.client.auth.RegistryAuthSupplier;
 import com.spotify.docker.client.auth.gcr.ContainerRegistryAuthSupplier;
 import com.spotify.docker.client.exceptions.DockerCertificateException;
 
-public abstract class AbstractDockerMojo extends AbstractOsgiContainerPackMojo {
+public abstract class AbstractOsgiDockerMojo extends AbstractOsgiContainerPackMojo {
 
     protected enum Metadata {
         IMAGE_ID("image ID", "image-id"), IMAGE_NAME("image name",
@@ -194,7 +194,7 @@ public abstract class AbstractDockerMojo extends AbstractOsgiContainerPackMojo {
     @Parameter(property = "dockerfile.username")
     protected String username;
 
-    protected AbstractDockerMojo(MavenProject pProject) {
+    protected AbstractOsgiDockerMojo(MavenProject pProject) {
         super(pProject);
     }
 
@@ -414,7 +414,7 @@ public abstract class AbstractDockerMojo extends AbstractOsgiContainerPackMojo {
         }
 
         try {
-            return Files.readFirstLine(metadataFile, Charsets.UTF_8);
+            return Files.readFirstLine(metadataFile, StandardCharsets.UTF_8);
         } catch (IOException e) {
             final String message = MessageFormat.format(
                     "Could not read {0} file at {1}", metadata.getFileName(),
@@ -476,7 +476,7 @@ public abstract class AbstractDockerMojo extends AbstractOsgiContainerPackMojo {
         }
 
         try {
-            Files.write(value + "\n", metadataFile, Charsets.UTF_8);
+            Files.write(value + "\n", metadataFile, StandardCharsets.UTF_8);
         } catch (IOException e) {
             final String message = MessageFormat.format(
                     "Could not write {0} file at {1}",
