@@ -1,0 +1,19 @@
+<lifecycleMappingMetadata>
+  <pluginExecutions>
+    <pluginExecution>
+      <pluginExecutionFilter>
+        <goals>
+          <goal>buildDockerImage</goal>
+          <goal>cacheMavenArtifacts</goal>
+          <goal>generateConfigurationFile</goal>
+          <goal>assembly</goal>
+          <goal>pushDockerImage</goal>
+          <goal>tagDockerImage</goal>
+        </goals>
+      </pluginExecutionFilter>
+      <action>
+        <ignore/>
+      </action>
+    </pluginExecution>
+  </pluginExecutions>
+</lifecycleMappingMetadata>
